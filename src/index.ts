@@ -443,6 +443,10 @@ const createWindow = () => {
 // $ Ferdium.app/Contents/MacOS/Ferdium --auth-server-whitelist *.mydomain.com --auth-negotiate-delegate-whitelist *.mydomain.com
 const argv = minimist(process.argv.slice(1));
 
+if (argv['app-name']) {
+  app.setName(argv['app-name']);
+}
+
 if (argv['auth-server-whitelist']) {
   app.commandLine.appendSwitch(
     'auth-server-whitelist',
